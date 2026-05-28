@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --p-baixa: rgb(20, 155, 20);
+    --p-baixa-hover: rgb(20, 100, 20);
+
+    --p-media: rgb(20, 20, 200);
+    --p-media-hover: rgb(20, 20, 100);
+
+    --p-alta: rgb(200, 100, 0);
+    --p-alta-hover: rgb(150, 70, 0);
+
+    --p-critica: rgb(210, 20, 20);
+    --p-critica-hover: rgb(100, 20, 20);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+section {
+    max-width: 90%;
+}
+
+main > #cadastra-chamado > #form-chamado {
+    max-width: 80%;
+    margin: auto;
+}
+
+main > #chamados-cadastrados > #lista-chamados {
+    /* border: 2px solid; */
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+main > #chamados-cadastrados > #lista-chamados .chamado {
+    --cor-prioridade: var(--p-baixa);
+    --cor-hover: var(--p-baixa-hover);
+
+    /* Apenas para construção do layout */
+    border-left: 5px solid var(--cor-prioridade);
+    border-radius: 8px;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.315);
+
+    padding: 10px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+
+    flex: 1 1;
+
+    width: 80%;
+    max-width: 600px;
+
+    transition: border-width 0.5s, border-color 0.5s;
+}
+
+main > #chamados-cadastrados > #lista-chamados .chamado:hover {
+    border-left-width: 15px;
+    border-color: var(--cor-hover);
+    cursor: pointer;
+}
+
+main > #chamados-cadastrados > #lista-chamados .chamado .cabecalho {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main > #chamados-cadastrados > #lista-chamados .chamado .cabecalho > p {
+    background-color: var(--bs-success);
+    color: white;
+
+    font-size: 0.8em;
+    font-weight: bold;
+
+    border-radius: 8px;
+    
+    padding: 5px
+}
+
+main > #chamados-cadastrados > #cards-chamados {
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+
+    /* border: 2px solid; */
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    max-width: 992px;
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado {
+    /* background-color: black; */
+    padding-top: 10px;
+
+    box-shadow: 2px 2px 5px rgba(26, 26, 26, 0.5);
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    flex: 1 0 120px;
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado p {
+    font-weight: bold;
+    line-height: 1;
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado#prioridade-baixa {
+    border-top: 5px solid var(--p-baixa);
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado#prioridade-media {
+    border-top: 5px solid var(--p-media);
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado#prioridade-alta {
+    border-top: 5px solid var(--p-alta);
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado#prioridade-critica {
+    border-top: 5px solid var(--p-critica);
+}
+
+main > #chamados-cadastrados > #cards-chamados .card-chamado#total-chamados {
+    border-top: 5px solid black;
+}
+
+main > #tabelas > #tabela-soma-problema {
+    max-width: 90%;
+
+    margin: auto;
+}
