@@ -1,0 +1,230 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk</title>
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- CSS - Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="corpo" data-bs-theme="light">    
+    <header>
+        <nav id="menu" class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid ps-4 pe-4">
+                <a class="navbar-brand d-flex justify-content-center align-items-center" href="#">
+                    <i class="bi bi-motherboard-fill me-2"></i>
+                    <p class="m-0">ITicket</p>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" class="link" aria-current="page" href="#">Início</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" class="link" href="#cadastra-chamado">Novo Chamado</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#chamados-cadastrados">Chamados</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tabelas">Tabelas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Fim header -->
+
+    <main class="container-fluid p-3">
+        <section class="container-fluid text-center mt-3 mb-3">
+            <h1>Painel de Chamados de TI</h1>
+            <p>Sistema acadêmico para cadastro e acompanhamento de chamados</p>
+
+            <div class="p-3 mt-3 rounded">
+                <button class="btn border text-center fw-bold" id="modo-claro">Alterar Tema</button>
+            </div>
+        </section>
+        <!-- Fim cabeçalho main -->
+
+        <section class="container bg-body-tertiary rounded shadow mb-3 p-3" id="cadastra-chamado">
+            <h2 class="text-center">Cadastrar Chamado</h2>
+
+            <form class="row g-3" id="form-chamado">
+                <div class="col-md-6">
+                    <label for="inome" class="form-label">
+                        Nome do solicitante
+                    </label>
+
+                    <input type="text" name="nome" id="inome" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="isetor" class="form-label">
+                        Setor
+                    </label>
+
+                    <input type="text" name="setor" id="isetor" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="iproblema" class="form-label">
+                        Tipo de Problema
+                    </label>
+
+                    <select class="form-select" aria-label="Default select example" id="iproblema" required>
+                        <option selected value="Computador">Computador</option>
+                        <option value="Rede">Rede</option>
+                        <option value="Impressora">Impressora</option>
+                        <option value="Periféricos">Periféricos</option>
+                        <option value="Notebook">Notebook</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="iprioridade" class="form-label">
+                        Prioridade
+                    </label>
+
+                    <select class="form-select" aria-label="Default select example" id="iprioridade" required>
+                        <option selected value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Crítica">Crítica</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="idescricao" class="form-label">Descrição do Problema</label>
+
+                    <textarea class="form-control" id="idescricao" rows="5" required placeholder="Digite aqui" style="resize: none;"></textarea>  
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-danger ms-2 me-2" type="reset">Limpar</button>
+
+                    <button class="btn btn-primary ms-2 me-2" type="submit" id="btnCadastra">Cadastrar</button>
+                </div>
+            </form>
+        </section>
+        <!-- Fim da seção formulário de cadastro de chamado -->
+
+        <section class="container bg-body-tertiary mb-3 p-3 rounded shadow" id="chamados-cadastrados"> 
+            <h2 class="text-center">Chamados Cadastrados</h2>
+            <p class="text-center">Aqui constam os chamados cadstrados</p>
+
+            <div id="cards-chamados">
+                <div class="card-chamado" id="prioridade-baixa">
+                    <p>Baixa</p>
+                    <p class="quantidade">0</p>
+                </div>
+
+                <div class="card-chamado" id="prioridade-media">
+                    <p>Média</p>
+                    <p class="quantidade">0</p>
+                </div>
+
+                <div class="card-chamado" id="prioridade-alta">
+                    <p>Alta</p>
+                    <p class="quantidade">0</p>
+                </div>
+
+                <div class="card-chamado" id="prioridade-critica">
+                    <p>Crítica</p>
+                    <p class="quantidade">0</p>
+                </div>
+
+                <div class="card-chamado" id="total-chamados">
+                    <p>Total</p>
+                    <p class="quantidade">0</p>
+                </div>
+            </div>
+            <!-- Fim cards-chamados -->
+
+            <div id="lista-chamados">
+                <!-- Formato padrão para chamados cadastrados -->
+                <!-- <div class="chamado">
+                    <div class="cabecalho">
+                        <h3 class="m-0">Chamado #01</h3>
+
+                        <p class="m-0">Aberto</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="dados">
+                        <p class="m-0 mb-1"><strong>Solicitante</strong>: nome</p>
+                        <p class="m-0 mb-1"><strong>Setor</strong>: nome</p>
+                        <p class="m-0 mb-1"><strong>Problema</strong>: nome</p>
+                        <p class="m-0 mb-1"><strong>Prioridade</strong>: nome</p>
+                        <p class="m-0 mb-1"><strong>Descrição</strong>: nome</p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <!-- Fim da seção de chamados cadastrados -->
+
+        <section class="container bg-body-tertiary p-3 rounded shadow" id="tabelas">
+            <h2 class="text-center">Somatório por tipo de problema</h2>
+
+            <div id="tabela-soma-problema">
+                <table class="table table-bordered table-striped bg-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="bg-secondary">Tipo de Problema</th>
+                            <th scope="col" class="bg-secondary">Quantidade</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Computador</td>
+                            <td class="text-center" id="quantidadeComputador">0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Rede</td>
+                            <td class="text-center" id="quantidadeRede">0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Impressora</td>
+                            <td class="text-center" id="quantidadeImpressora">0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Periféricos</td>
+                            <td class="text-center" id="quantidadePerifericos">0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Notebook</td>
+                            <td class="text-center" id="quantidadeNotebook">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Fim da seção tabelas -->
+    </main>
+    
+    <script src="script.js"></script>
+
+    <!-- Script - Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
