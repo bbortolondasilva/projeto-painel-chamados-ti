@@ -2,7 +2,9 @@
 
 <p>
 
-    Uma aplicação web interativa para cadastro e acompanhamento de chamados técnicos, desenvolvida com foco em manipulação do DOM e interatividade utilizando JavaScript, HTML e CSS.
+    Uma aplicação web interativa para cadastro e acompanhamento de chamados técnicos, 
+    desenvolvida com foco em manipulação do DOM e interatividade utilizando
+    JavaScript, HTML e CSS.
 </p>
 
 
